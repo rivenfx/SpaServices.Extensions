@@ -11,7 +11,7 @@ ASPNET Core 对单页应用程序的扩展支持。
 
 ## 编译状态
 
-[![Build Status](https://dev.azure.com/rivenfx/RivenFx/_apis/build/status/rivenfx.SpaServices.Extensions?branchName=master)](https://dev.azure.com/rivenfx/RivenFx/_build/latest?definitionId=8&branchName=master)
+[![Build Status](https://dev.azure.com/rivenfx/RivenFx/_apis/build/status/rivenfx.SpaServices.Extensions?branchName=master)](https://dev.azure.com/rivenfx/RivenFx/_build/latest?definitionId=10&branchName=master)
 
 ## Nuget
 
