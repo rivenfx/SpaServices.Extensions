@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 
 using System;
 
-namespace Riven.Microsoft.AspNetCore.SpaServices
+namespace Microsoft.AspNetCore.SpaServices
 {
     public class RivenSpaOptions
     {

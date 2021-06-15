@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using Riven.Microsoft.AspNetCore.SpaServices;
+using Microsoft.AspNetCore.SpaServices;
 
 namespace Microsoft.AspNetCore.Builder
 {

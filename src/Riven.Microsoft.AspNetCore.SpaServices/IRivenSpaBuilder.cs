@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.SpaServices;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Riven.Microsoft.AspNetCore.SpaServices
+namespace Microsoft.AspNetCore.SpaServices
 {
     /// <summary>
     /// Riven 的 SPA 构建器

@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Builder;
 
 using System;
 
-namespace Riven.Microsoft.AspNetCore.SpaServices
+namespace Microsoft.AspNetCore.SpaServices
 {
     public class DefaultRivenSpaBuilder : IRivenSpaBuilder
     {
