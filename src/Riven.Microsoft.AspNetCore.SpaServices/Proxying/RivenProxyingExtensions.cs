@@ -1,18 +1,13 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices;
 using Microsoft.AspNetCore.SpaServices.Extensions.Proxy;
 using Microsoft.Extensions.Hosting;
 
-using Riven.Microsoft.AspNetCore.SpaServices;
-
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Builder
 {
