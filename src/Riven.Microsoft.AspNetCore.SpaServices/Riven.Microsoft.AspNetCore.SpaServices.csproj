@@ -1,7 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\common.props" />
+  <Import Project="..\..\version.props" />
+  <Import Project="..\..\repository_info.props" />
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Microsoft.AspNetCore.SpaServices</RootNamespace>
+
+    <PackageId>Riven.Microsoft.AspNetCore.SpaServices</PackageId>
+    <Description>Riven.Microsoft.AspNetCore.SpaServices</Description>
+    <AssemblyName>Riven.Microsoft.AspNetCore.SpaServices</AssemblyName>
+
+    <PackageTags>riven;codearts;influxdb;influx;linq;</PackageTags>
+
   </PropertyGroup>
 
   <ItemGroup>
