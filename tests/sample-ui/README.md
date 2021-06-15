@@ -1,27 +1,48 @@
 # SampleUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.3.
+本项目是一个基于  [Angular CLI](https://github.com/angular/angular-cli) 10.0.3 生成的 SPA 应用，用于配合 [ASP.NET Core 项目](https://github.com/rivenfx/SpaServices.Extensions/tree/master/tests/SampleWebApp)
 
-## Development server
+## 如何运行？
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+本项目充当两个 SPA 应用，所以分为两个命令，单独运行
 
-## Code scaffolding
+**app1**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```shell
+npm run app1
+```
 
-## Build
+> http://localhost:8201
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+**app2**
 
-## Running unit tests
+```shell
+npm run app2
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+> http://localhost:8202
 
-## Running end-to-end tests
+## 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## 如何发布？
 
-## Further help
+>  注意！在发布本项目之前，应当先发布 [ASP.NET Core 项目](https://github.com/rivenfx/SpaServices.Extensions/tree/master/tests/SampleWebApp)。
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+本项目充当两个 SPA 应用，所以分为两个命令，单独运行
+
+**app1**
+
+```shell
+npm run build1
+```
+
+> 发布输出所在目录为 `../SampleWebApp/bin/dist/wwwroot/app1`
+
+**app2**
+
+```shell
+npm run build2
+```
+
+> 发布输出所在目录为 `../SampleWebApp/bin/dist/wwwroot/app2`
+
