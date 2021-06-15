@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start1": "ng serve --port 8201 --base-href=/app1/  --public-host=http://localhost:8201",
-    "start2": "ng serve --port 8202 --base-href=/app2/  --public-host=http://localhost:8202",
+    "app1": "ng serve --port 8201 --base-href=/app1/  --public-host=http://localhost:8201",
+    "app2": "ng serve --port 8202 --base-href=/app2/  --public-host=http://localhost:8202",
     "build1": "ng build --prod --base-href=/app1/ --output-path=../SampleWebApp/bin/dist/wwwroot/app1",
     "build2": "ng build --prod --base-href=/app2/ --output-path=../SampleWebApp/bin/dist/wwwroot/app2",
     "test": "ng test",
