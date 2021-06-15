@@ -2,8 +2,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
+using Riven.Microsoft.AspNetCore.SpaServices;
 
-namespace Riven.Microsoft.AspNetCore.SpaServices
+namespace Microsoft.AspNetCore.Builder
 {
     public static class RivenSpaExtenstions
     {
@@ -32,10 +33,21 @@ namespace Riven.Microsoft.AspNetCore.SpaServices
 
             // dev环境使用代理
             var env = app.ApplicationServices.GetService<IHostEnvironment>();
-            if (env != null && env.IsDevelopment() && builder.Options.DevServer != null)
+            if (env != null
+                && env.IsDevelopment()
+                && builder.Options.DevServer != null)
             {
                 builder.ProxyDevServer(builder.Options.DevServer);
             }
+
+            // 非dev环境使用静态文件目录
+            if (env != null
+                && !env.IsDevelopment()
+                && builder.Options.PageStaticFileOptions != null)
+            {
+                app.UseStaticFiles(builder.Options.PageStaticFileOptions);
+            }
+
 
             return app;
         }
