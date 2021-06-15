@@ -42,7 +42,7 @@ namespace SampleWebApp
 
             app.UseRivenSpa((spa) =>
             {
-                var spaName = "ui1";
+                var spaName = "app1";
                 var requestPath = $"/{spaName}";
 
                 spa.Options.RequestPath = requestPath;
@@ -53,12 +53,12 @@ namespace SampleWebApp
                        Path.Join(env.WebRootPath, spaName)
                     )
                 };
-                spa.Options.DevServer = new Uri("http://localhost:4200");
+                spa.Options.DevServer = new Uri("http://localhost:8201");
             });
 
             app.UseRivenSpa((spa) =>
             {
-                var spaName = "ui2";
+                var spaName = "app2";
                 var requestPath = $"/{spaName}";
 
                 spa.Options.RequestPath = requestPath;
@@ -69,7 +69,7 @@ namespace SampleWebApp
                        Path.Join(env.WebRootPath, spaName)
                     )
                 };
-                spa.Options.DevServer = new Uri("http://localhost:8200");
+                spa.Options.DevServer = new Uri("http://localhost:8202");
             });
 
 
