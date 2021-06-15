@@ -9,7 +9,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2444F112-82A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{211277C5-8530-43C6-A370-75BF58E116EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleWebApp", "tests\SampleWebApp\SampleWebApp.csproj", "{F78F1425-27B7-42CB-970D-4229F7CC04C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleWebApp", "tests\SampleWebApp\SampleWebApp.csproj", "{F78F1425-27B7-42CB-970D-4229F7CC04C9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1661DED6-F23F-4D8F-881B-B19273F8F78C}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+		common.props = common.props
+		global.json = global.json
+		LICENSE = LICENSE
+		README.md = README.md
+		RELEASE_NOTES.md = RELEASE_NOTES.md
+		repository_info.props = repository_info.props
+		version.props = version.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "nupkg", "nupkg", "{77BC21A5-A544-474A-B966-5FA501566D01}"
+	ProjectSection(SolutionItems) = preProject
+		nupkg\common.ps1 = nupkg\common.ps1
+		nupkg\pack.ps1 = nupkg\pack.ps1
+		nupkg\push_packages.ps1 = nupkg\push_packages.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +51,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{751AA8B0-B5F7-442F-9AC0-4792107A45D4} = {2444F112-82AC-47FF-9A83-028538CA55DE}
 		{F78F1425-27B7-42CB-970D-4229F7CC04C9} = {211277C5-8530-43C6-A370-75BF58E116EE}
+		{77BC21A5-A544-474A-B966-5FA501566D01} = {1661DED6-F23F-4D8F-881B-B19273F8F78C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0DC1D2A1-0897-47F0-A0BB-DCA514090731}

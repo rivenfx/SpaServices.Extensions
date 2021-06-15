@@ -1,0 +1,9 @@
+<Project>
+
+  <PropertyGroup>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/rivenfx/SpaServices.Extensions</RepositoryUrl>
+    <PackageLicense>https://github.com/rivenfx/SpaServices.Extensions/blob/master/LICENSE</PackageLicense>
+  </PropertyGroup>
+    
+</Project>
