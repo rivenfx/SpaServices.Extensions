@@ -11,6 +11,8 @@ using Riven.Microsoft.AspNetCore.SpaServices;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -71,10 +73,15 @@ namespace Microsoft.AspNetCore.Builder
             var neverTimeOutHttpClient =
                RivenSpaProxy.CreateHttpClientForProxy(Timeout.InfiniteTimeSpan);
 
+            var requestPath1 = spaBuilder.Options.RequestPath.Value;
+            var requestPath2 = $"{requestPath1}/";
+
             app.Use(async (context, next) =>
             {
-                var currentRequestPath = context.Request.Path.Value.TrimEnd('/');
-                if (!currentRequestPath.StartsWith(spaBuilder.Options.RequestPath.Value))
+                var currentRequestPath = context.Request.Path.Value;
+
+                if (!currentRequestPath.StartsWith(requestPath1)
+                    && !currentRequestPath.StartsWith(requestPath2))
                 {
                     await next();
                     return;
