@@ -76,8 +76,7 @@ namespace Microsoft.AspNetCore.Builder
             {
                 var currentRequestPath = context.Request.Path.Value;
                 if (!currentRequestPath.StartsWith(requestPath1)
-                    && !currentRequestPath.StartsWith(requestPath2)
-                    && context.GetEndpoint() != null)
+                    && !currentRequestPath.StartsWith(requestPath2))
                 {
                     await next();
                     return;
