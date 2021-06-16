@@ -47,14 +47,22 @@ namespace SampleWebApp
                 var requestPath = $"/{spaName}";
 
                 spa.Options.RequestPath = requestPath;
-                spa.Options.PageStaticFileOptions = new StaticFileOptions()
+
+                // 开发时使用
+                if (env.IsDevelopment())
                 {
-                    RequestPath = spa.Options.RequestPath,
-                    FileProvider = new PhysicalFileProvider(
-                       Path.Join(env.WebRootPath, spaName)
-                    )
-                };
-                spa.Options.DevServer = new Uri("http://localhost:8201");
+                    spa.ProxyDevServer("http://localhost:8201");
+                }
+                else // 发布后使用
+                {
+                    spa.Options.PageStaticFileOptions = new StaticFileOptions()
+                    {
+                        RequestPath = spa.Options.RequestPath,
+                        FileProvider = new PhysicalFileProvider(
+                            Path.Join(env.WebRootPath, spaName)
+                        )
+                    };
+                }
             });
 
             app.UseRivenSpa((spa) =>
@@ -63,14 +71,23 @@ namespace SampleWebApp
                 var requestPath = $"/{spaName}";
 
                 spa.Options.RequestPath = requestPath;
-                spa.Options.PageStaticFileOptions = new StaticFileOptions()
+
+
+                // 开发时使用
+                if (env.IsDevelopment())
                 {
-                    RequestPath = spa.Options.RequestPath,
-                    FileProvider = new PhysicalFileProvider(
-                       Path.Join(env.WebRootPath, spaName)
-                    )
-                };
-                spa.Options.DevServer = new Uri("http://localhost:8202");
+                    spa.ProxyDevServer("http://localhost:8202");
+                }
+                else // 发布后使用
+                {
+                    spa.Options.PageStaticFileOptions = new StaticFileOptions()
+                    {
+                        RequestPath = spa.Options.RequestPath,
+                        FileProvider = new PhysicalFileProvider(
+                            Path.Join(env.WebRootPath, spaName)
+                        )
+                    };
+                }
             });
 
 
