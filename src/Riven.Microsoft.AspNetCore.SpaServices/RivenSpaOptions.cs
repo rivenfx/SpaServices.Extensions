@@ -29,7 +29,7 @@ namespace Microsoft.AspNetCore.SpaServices
         }
 
         /// <summary>
-        /// 默认页面,默认为 "/index.html"
+        /// 默认页面,默认为 "index.html"
         /// </summary>
         public virtual PathString DefaultPage
         {
@@ -49,10 +49,5 @@ namespace Microsoft.AspNetCore.SpaServices
         /// 静态文件路径配置
         /// </summary>
         public virtual StaticFileOptions PageStaticFileOptions { get; set; }
-
-        /// <summary>
-        /// 开发服务器
-        /// </summary>
-        public virtual Uri DevServer { get; set; }
     }
 }

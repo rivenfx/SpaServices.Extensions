@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.AspNetCore.SpaServices;
+using Microsoft.AspNetCore.Http;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -31,20 +32,33 @@ namespace Microsoft.AspNetCore.Builder
                 throw new ArgumentException($"The value for {nameof(builder.Options.DefaultPage)} cannot be null or empty.");
             }
 
-            // dev环境使用代理
-            var env = app.ApplicationServices.GetService<IHostEnvironment>();
-            if (env != null
-                && env.IsDevelopment()
-                && builder.Options.DevServer != null)
-            {
-                builder.ProxyDevServer(builder.Options.DevServer);
-            }
 
-            // 非dev环境使用静态文件目录
-            if (env != null
-                && !env.IsDevelopment()
-                && builder.Options.PageStaticFileOptions != null)
+            // 使用静态文件目录
+            if (builder.Options.PageStaticFileOptions != null)
             {
+                // default page Middleware
+                var requestPath1 = builder.Options.RequestPath.Value.TrimEnd('/');
+                var requestPath2 = $"{requestPath1}/";
+
+                var defaultPage = string.Format(
+                    "{0}{1}",
+                    requestPath2,
+                    builder.Options.DefaultPage.Value.Trim('/')
+                    );
+                app.Use(async (context, next) =>
+                {
+                    var currentRequestPath = context.Request.Path.Value;
+
+                    if (currentRequestPath == requestPath1
+                        || currentRequestPath == requestPath2)
+                    {
+                        context.Request.Path = defaultPage;
+                    }
+
+                    await next();
+                });
+
+                // staticfiles 
                 app.UseStaticFiles(builder.Options.PageStaticFileOptions);
             }
 

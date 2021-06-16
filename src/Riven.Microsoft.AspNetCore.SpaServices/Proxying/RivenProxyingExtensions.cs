@@ -1,6 +1,7 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.SpaServices;
 using Microsoft.AspNetCore.SpaServices.Extensions.Proxy;
 using Microsoft.Extensions.Hosting;
@@ -68,15 +69,15 @@ namespace Microsoft.AspNetCore.Builder
             var neverTimeOutHttpClient =
                RivenSpaProxy.CreateHttpClientForProxy(Timeout.InfiniteTimeSpan);
 
-            var requestPath1 = spaBuilder.Options.RequestPath.Value;
+            var requestPath1 = spaBuilder.Options.RequestPath.Value.TrimEnd('/');
             var requestPath2 = $"{requestPath1}/";
 
             app.Use(async (context, next) =>
             {
                 var currentRequestPath = context.Request.Path.Value;
-
                 if (!currentRequestPath.StartsWith(requestPath1)
-                    && !currentRequestPath.StartsWith(requestPath2))
+                    && !currentRequestPath.StartsWith(requestPath2)
+                    && context.GetEndpoint() != null)
                 {
                     await next();
                     return;
