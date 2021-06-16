@@ -37,17 +37,17 @@ namespace Microsoft.AspNetCore.Builder
             if (builder.Options.PageStaticFileOptions != null)
             {
                 // default page Middleware
-                var requestPath1 = builder.Options.RequestPath.Value.TrimEnd('/');
+                var requestPath1 = builder.Options.RequestPath.Value.TrimEnd('/').ToLower();
                 var requestPath2 = $"{requestPath1}/";
 
                 var defaultPage = string.Format(
                     "{0}{1}",
                     requestPath2,
-                    builder.Options.DefaultPage.Value.Trim('/')
+                    builder.Options.DefaultPage.Value.Trim('/').ToLower()
                     );
                 app.Use(async (context, next) =>
                 {
-                    var currentRequestPath = context.Request.Path.Value;
+                    var currentRequestPath = context.Request.Path.Value.ToLower();
 
                     if (currentRequestPath == requestPath1
                         || currentRequestPath == requestPath2)

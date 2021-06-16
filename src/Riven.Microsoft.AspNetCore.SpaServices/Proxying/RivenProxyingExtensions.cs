@@ -69,12 +69,12 @@ namespace Microsoft.AspNetCore.Builder
             var neverTimeOutHttpClient =
                RivenSpaProxy.CreateHttpClientForProxy(Timeout.InfiniteTimeSpan);
 
-            var requestPath1 = spaBuilder.Options.RequestPath.Value.TrimEnd('/');
+            var requestPath1 = spaBuilder.Options.RequestPath.Value.TrimEnd('/').ToLower();
             var requestPath2 = $"{requestPath1}/";
 
             app.Use(async (context, next) =>
             {
-                var currentRequestPath = context.Request.Path.Value;
+                var currentRequestPath = context.Request.Path.Value.ToLower();
                 if (!currentRequestPath.StartsWith(requestPath1)
                     && !currentRequestPath.StartsWith(requestPath2))
                 {
